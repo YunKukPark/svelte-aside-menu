@@ -6,16 +6,16 @@
 
   let inputRef;
   let image = '';
-  let isSlideOpened = true;
+  let isSlideOpened:boolean = true;
   const toggleSlide = () => isSlideOpened = !isSlideOpened;
   const clickInput = () => inputRef.click()
-  
+
 
 </script>
 
-<div class="w-full h-screen bg-gray-200">
+<div class="w-full min-h-screen bg-gray-200">
 {#if isSlideOpened}
-  <aside in:fly="{{ x: -200, duration: 1000 }}" out:fly="{{ x: -200, duration: 1000}}" class="fixed {!isSlideOpened && '-translate-x-60'} h-screen bg-black/60 rounded-r-3xl w-80 px-8 py-7 transition-transform duration-700">
+  <aside in:fly="{{ x: -200, duration: 1000 , opacity: 1 }}"  class="fixed {!isSlideOpened && '-translate-x-60'} h-screen bg-black/60 rounded-r-3xl w-80 px-8 py-7 transition-transform duration-700">
     <div class="flex items-center mb-8">
       <!-- TODO: 반복되는 부분 Component화 하기 -->
       <div class="w-3 h-3 bg-red-500 rounded-full mr-1.5 drop-shadow-xl"></div>
@@ -49,33 +49,36 @@
   </aside>
 
 {:else}
-  <aside in:fly="{{ x: 100, duration: 1000 }}" class="fixed flex flex-col items-center h-screen bg-black/60 rounded-r-3xl w-44 px-8 py-7 transition-transform duration-700">
-    <div class="flex items-center mb-8">
-      <!-- TODO: 반복되는 부분 Component화 하기 -->
-      <div class="w-3 h-3 bg-red-500 rounded-full mr-1.5 drop-shadow-xl"></div>
-      <div class="w-3 h-3 bg-yellow-500 rounded-full mr-1.5 drop-shadow-xl"></div>
-      <div class="w-3 h-3 bg-green-500 rounded-full mr-1.5 drop-shadow-xl"></div>
-    </div>
+  <div in:fly="{{ x: 100, duration: 1000, opacity:1 }}" class="flex fixed -left-28">
+    <div class="w-28 min-h-screen bg-black/60" />
+    <aside class=" flex flex-col items-center min-h-screen bg-black/60 rounded-r-3xl w-44 px-8 py-7 transition-transform duration-700">
+      <div class="flex items-center mb-8">
+        <!-- TODO: 반복되는 부분 Component화 하기 -->
+        <div class="w-3 h-3 bg-red-500 rounded-full mr-1.5 drop-shadow-xl"></div>
+        <div class="w-3 h-3 bg-yellow-500 rounded-full mr-1.5 drop-shadow-xl"></div>
+        <div class="w-3 h-3 bg-green-500 rounded-full mr-1.5 drop-shadow-xl"></div>
+      </div>
 
-    <header class="relative flex mb-8">
-      <div class="w-12 h-12 overflow-hidden rounded-xl p-1 bg-white/10 border-white">
-        <img class="block rounded-xl object-cover" src="https://ca.slack-edge.com/T030HSNLUTS-U02V57HAGF7-a8b0f252083c-512" alt="user">
-      </div>
-      <button on:click={toggleSlide} class="absolute top-1/2 -right-20 -translate-y-1/2 flex justify-center items-center w-7 h-7 p-2 text-base rounded-full bg-blue-600 text-white {isSlideOpened && 'rotate-180'} transition-all">
-        <FaChevronRight />
+      <header class="relative flex mb-8">
+        <div class="w-12 h-12 overflow-hidden rounded-xl p-1 bg-white/10 border-white">
+          <img class="block rounded-xl object-cover" src="https://ca.slack-edge.com/T030HSNLUTS-U02V57HAGF7-a8b0f252083c-512" alt="user">
+        </div>
+        <button on:click={toggleSlide} class="absolute top-1/2 -right-20 -translate-y-1/2 flex justify-center items-center w-7 h-7 p-2 text-base rounded-full bg-blue-600 text-white {isSlideOpened && 'rotate-180'} transition-all">
+          <FaChevronRight />
+        </button>
+      </header>
+      <AsideMenu {isSlideOpened}/>
+      <button on:click|stopPropagation={clickInput} class="flex flex-col justify-center items-center w-full py-8 ">
+        <input class="sr-only" type="file" bind:this={inputRef}/>
+        <div class="w-12 h-12 p-4 text-white rounded-full bg-blue-600 drop-shadow-xl mb-3">
+          <FaPlus/>
+        </div>
+        <div>
+          <strong class="text-white">Upload</strong>
+        </div>
       </button>
-    </header>
-    <AsideMenu {isSlideOpened}/>
-    <button on:click|stopPropagation={clickInput} class="flex flex-col justify-center items-center w-full py-8 ">
-      <input class="sr-only" type="file" bind:this={inputRef}/>
-      <div class="w-12 h-12 p-4 text-white rounded-full bg-blue-600 drop-shadow-xl mb-3">
-        <FaPlus/>
-      </div>
-      <div>
-        <strong class="text-white">Upload</strong>
-      </div>
-    </button>
-  </aside>
+    </aside>
+  </div>
 {/if}
 
 </div>

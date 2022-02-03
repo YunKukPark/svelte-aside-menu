@@ -1,5 +1,5 @@
 export interface IMenu {
-	icon: string;
+	icon: any;
 	content: string;
 	link: string;
 	sub_category: string[];
