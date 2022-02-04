@@ -6,8 +6,12 @@
 ![ezgif-5-68bd2d6b3f](https://user-images.githubusercontent.com/53929065/151517017-eb70a801-7bd3-491c-8564-db648ab49bec.gif)
 
 # To-Do
-- [ ] `src/lib/AsideMenuItem.svelte` HOC 개념 보고 icon 다르게 출력 하는 부분 리팩토링  
-- [ ] `src/index.svelte` 반복되는 부분 Component화 하여 리팩토링
+- [x] `src/lib/AsideMenuItem.svelte` HOC 개념 보고 icon 다르게 출력 하는 부분 리팩토링  
+- [x] `src/index.svelte` 반복되는 부분 Component화 하여 리팩토링
+
+# 수정 Preview (21. 2. 4)
+![ezgif-3-952a7d8f43](https://user-images.githubusercontent.com/53929065/152472584-c932ac42-61aa-4a16-a676-972c8c7750ee.gif)
+
 
 ## Todo Ref
 [HOC in svlete](https://medium.com/@zachhardesty/svelte-how-to-guide-higher-order-components-hoc-forwarding-props-and-class-names-712aedd24a0a)
