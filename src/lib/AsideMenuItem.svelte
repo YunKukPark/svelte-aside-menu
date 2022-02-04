@@ -2,15 +2,9 @@
   import {IMenu} from '../type/MenuType';
   import {slide} from 'svelte/transition'
   import FaChevronRight from 'svelte-icons/fa/FaChevronRight.svelte'
-  import MdDeveloperBoard from 'svelte-icons/md/MdDeveloperBoard.svelte'
   import FaCommentDots from 'svelte-icons/fa/FaCommentDots.svelte'
-  import FaComments from 'svelte-icons/fa/FaComments.svelte'
-  import TiChartArea from 'svelte-icons/ti/TiChartArea.svelte'
-  import FaBookOpen from 'svelte-icons/fa/FaBookOpen.svelte'
-  import DiTrello from 'svelte-icons/di/DiTrello.svelte'
   import ChatController from './ChatController.svelte';
   import Icon from './atom/Icon.svelte';
-  import AsideMenu from './AsideMenu.svelte';
   
   export let menu:IMenu, isSlideOpened;
   const {link, icon, content, sub_category} = menu;
@@ -23,25 +17,19 @@
 <li>
   <a href={link} class="relative flex items-center {isSlideOpened ? 'mr-3': 'm-0'} {!isAcodianOpened && 'mb-8'}">
     <div class="w-6 y-6 {isSlideOpened ? 'mr-3': 'm-0'} text-white/60" aria-hidden="true">
-      <Icon {icon}>
-        
-      </Icon>
       <!-- TODO: HOC 개념 보고 적용 해 볼 것 -->
-      {#if icon === MdDeveloperBoard}
-        <MdDeveloperBoard/>
-      {:else if icon === FaCommentDots}
+      <!-- {#if icon === MdDeveloperBoard} -->
+        <!-- <MdDeveloperBoard/> -->
+      {#if icon === FaCommentDots}
+      <Icon {icon}>
         <div class="relative">
-          <FaCommentDots/>
+          <!-- <FaCommentDots/> -->
           <div class="absolute -top-1 -right-1.5 flex justify-center items-center w-3.5 h-3.5 bg-orange-400 rounded-full text-black text-sm">3</div>
         </div>
-      {:else if icon === FaComments}
-        <FaComments />
-      {:else if icon === TiChartArea}
-        <TiChartArea/>
-      {:else if icon === FaBookOpen}
-        <FaBookOpen/>
-      {:else if icon === DiTrello}
-        <DiTrello />
+      </Icon>
+      {:else}
+        <!-- <svelte:component this={icon} /> -->
+        <Icon {icon} />
       {/if}
     </div>
     {#if isSlideOpened}

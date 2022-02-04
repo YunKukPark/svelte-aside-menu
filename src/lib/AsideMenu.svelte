@@ -2,14 +2,12 @@
   export let isSlideOpened;
   import AsideMenuItem from './AsideMenuItem.svelte';
   import {IMenu} from '../type/MenuType';
-  import FaChevronRight from 'svelte-icons/fa/FaChevronRight.svelte'
   import MdDeveloperBoard from 'svelte-icons/md/MdDeveloperBoard.svelte'
   import FaCommentDots from 'svelte-icons/fa/FaCommentDots.svelte'
   import FaComments from 'svelte-icons/fa/FaComments.svelte'
   import TiChartArea from 'svelte-icons/ti/TiChartArea.svelte'
   import FaBookOpen from 'svelte-icons/fa/FaBookOpen.svelte'
   import DiTrello from 'svelte-icons/di/DiTrello.svelte'
-  import ChatController from './ChatController.svelte';
 
 
   const MENU_ITEMS:IMenu[] = [
