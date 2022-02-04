@@ -50,7 +50,7 @@
   ]
 </script>
 
-<ul class="border-y border-white px-1 py-8 mb-6">
+<ul class="flex flex-col border-y border-white px-1 py-8 mb-6" class:items-center={!isSlideOpened}>
   {#each MENU_ITEMS as menu}
     <AsideMenuItem {menu} {isSlideOpened}/> 
   {/each}

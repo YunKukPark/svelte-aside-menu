@@ -17,13 +17,9 @@
 <li>
   <a href={link} class="relative flex items-center {isSlideOpened ? 'mr-3': 'm-0'} {!isAcodianOpened && 'mb-8'}">
     <div class="w-6 y-6 {isSlideOpened ? 'mr-3': 'm-0'} text-white/60" aria-hidden="true">
-      <!-- TODO: HOC 개념 보고 적용 해 볼 것 -->
-      <!-- {#if icon === MdDeveloperBoard} -->
-        <!-- <MdDeveloperBoard/> -->
       {#if icon === FaCommentDots}
       <Icon {icon}>
         <div class="relative">
-          <!-- <FaCommentDots/> -->
           <div class="absolute -top-1 -right-1.5 flex justify-center items-center w-3.5 h-3.5 bg-orange-400 rounded-full text-black text-sm">3</div>
         </div>
       </Icon>
